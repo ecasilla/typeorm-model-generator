@@ -167,6 +167,9 @@ function createHandlebarsHelpers(generationOptions: IGenerationOptions): void {
             case "pascal":
                 retStr = changeCase.pascalCase(str);
                 break;
+            case "snake":
+                retStr = changeCase.snakeCase(str);
+                break;
             case "none":
                 retStr = str;
                 break;
@@ -186,6 +189,9 @@ function createHandlebarsHelpers(generationOptions: IGenerationOptions): void {
                 break;
             case "pascal":
                 retStr = changeCase.pascalCase(str);
+                break;
+            case "snake":
+                retStr = changeCase.snakeCase(str);
                 break;
             case "none":
                 retStr = str;
@@ -208,6 +214,9 @@ function createHandlebarsHelpers(generationOptions: IGenerationOptions): void {
                 break;
             case "pascal":
                 retStr = changeCase.pascalCase(str);
+                break;
+            case "snake":
+                retStr = changeCase.snakeCase(str);
                 break;
             case "none":
                 retStr = str;

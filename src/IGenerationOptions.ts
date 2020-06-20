@@ -9,9 +9,9 @@ export default interface IGenerationOptions {
     resultsPath: string;
     pluralizeNames: boolean;
     noConfigs: boolean;
-    convertCaseFile: "pascal" | "param" | "camel" | "none";
-    convertCaseEntity: "pascal" | "camel" | "none";
-    convertCaseProperty: "pascal" | "camel" | "none";
+    convertCaseFile: "pascal" | "param" | "camel" | "snake" | "none";
+    convertCaseEntity: "pascal" | "camel" | "snake" | "none";
+    convertCaseProperty: "pascal" | "camel" | "snake" | "none";
     convertEol: "LF" | "CRLF";
     propertyVisibility: "public" | "protected" | "private" | "none";
     lazy: boolean;

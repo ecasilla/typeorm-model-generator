@@ -282,6 +282,34 @@ describe("Model customization phase", async () => {
 
             compileGeneratedModel(generationOptions.resultsPath, [""]);
         });
+        it("snakeCase", () => {
+            const data = generateSampleData();
+            const generationOptions = generateGenerationOptions();
+            clearGenerationDir();
+
+            generationOptions.convertCaseProperty = "snake";
+            const customizedModel = modelCustomizationPhase(
+                data,
+                generationOptions,
+                {}
+            );
+            modelGenerationPhase(
+                getDefaultConnectionOptions(),
+                generationOptions,
+                customizedModel
+            );
+            const filesGenPath = path.resolve(resultsPath, "entities");
+            const postContent = fs
+                .readFileSync(path.resolve(filesGenPath, "Post.ts"))
+                .toString();
+            const postAuthorContent = fs
+                .readFileSync(path.resolve(filesGenPath, "PostAuthor.ts"))
+                .toString();
+            expect(postContent).to.contain("title: string;");
+            expect(postAuthorContent).to.contain("posts: Post[];");
+
+            compileGeneratedModel(generationOptions.resultsPath, [""]);
+        });
     });
     describe("EOL", async () => {
         it("LF", () => {
